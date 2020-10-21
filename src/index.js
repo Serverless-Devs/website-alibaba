@@ -9,6 +9,19 @@ class WebsiteComponent extends Component {
   // 部署操作
   async deploy(inputs) {
     console.log(blue('website config deploying...'))
+    // 导入FC组件
+    const fc = await this.load('OSSComponent', 'Component');
+    console.log(JSON.stringify(fc))
+    const { Project, Credentials, Properties } = inputs;
+
+    const state = await fc.deploy({
+      Args: inputs.Args,
+      State: fc.state,
+      Credentials,
+      Project,
+      Properties: Properties
+    });
+
     await deployImpl(this.handlerInputs(inputs))
     console.log(blue('website config succeed'))
   }

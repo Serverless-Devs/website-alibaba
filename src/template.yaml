@@ -3,23 +3,25 @@ WebsiteComponent:
   Provider: alibaba
   Access: edas_beta_test
   Properties:
+    # OSS相关配置
     Region: 'cn-hangzhou'
-    Bucket: MybucketName
+    Bucket: baiji-oss-test
     #    CodeUri: 本地路径
     CodeUri:
-      Src: 本地路径
+      ObjectPrefix: ossprefix/test
+      LocalDir: ../test/
+      # 仅支持目录前缀模式匹配，例如 src/test/, src/test1/等形式
+      # 如果在Includes目录中，则一定会上传，否则判断是否被Exclude了，如果被Exclude，则不上传
       Excludes:
-        - path1
-        - path2
+        - ../test/testdir1/
+        - ../test/testdir2/
       Includes:
-        - path1
-        - path2
-    Pages:
+        - ../test/testdir1/file
+    Website:
       Index: index.html
       Error: error.html
-      SubDir:
-        Index: index.html
-        ErrorRuleType: 1
+      SupportSubDir: true
+      Type: 0 # 0: Redirect 1: NoSuchKey 2: Inde
     Domains:
       - Domain: anycodes.cn
         AutoCname: true
@@ -32,24 +34,42 @@ WebsiteComponent:
           Vaule: bbb
     Tags:
       - Key: aa
-        Vaule: bbb
+        Value: bbb
+      - Key: cc
+        Value: ddd
     Cors:
-      AllowedOrigin:
-        - http://www.a.com
-        - http://www.b.com
-      AllowedMethod:
-        - POST
-        - GET
-      AllowedHeader: Authorization
-      ExposeHeader:
-        - x-oss-test
-        - x-oss-test1
-      MaxAgeSeconds: 100
-      ResponseVary: true
+      #      - AllowedOrigin:
+      #          - http://www.c.com
+      #          - http://www.d.com
+      #        AllowedMethod:
+      #          - POST
+      #          - GET
+      #          - HEAD
+      #        AllowedHeader:
+      #          - Authorization
+      #        ExposeHeader:
+      #          - x-oss-test3
+      #          - x-oss-test4
+      #        MaxAgeSeconds: 200
+      #        ResponseVary: false
+      - AllowedOrigin:
+          - http://www.a.com
+          - http://www.b.com
+        AllowedMethod:
+          - POST
+          - GET
+        AllowedHeader:
+          - Authorization
+        ExposeHeader:
+          - x-oss-test
+          - x-oss-test1
+        MaxAgeSeconds: 100
+        ResponseVary: true
     Referer:
-      AllowEmptyReferer: true
-      List:
-        - http://www.aliyun.com
+        AllowEmptyReferer: true
+        List:
+          - http://www.aliyun.com
+          - http://www.prettyzxx.comm
 #    RoutingRules:
 #      RuleNumber: 1
 #      Condition:
