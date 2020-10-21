@@ -1,0 +1,86 @@
+WebsiteComponent:
+  Component: /Users/xianbintang/workspace/website-alibaba/src
+  Provider: alibaba
+  Access: edas_beta_test
+  Properties:
+    Region: 'cn-hangzhou'
+    Bucket: MybucketName
+    #    CodeUri: 本地路径
+    CodeUri:
+      Src: 本地路径
+      Excludes:
+        - path1
+        - path2
+      Includes:
+        - path1
+        - path2
+    Pages:
+      Index: index.html
+      Error: error.html
+      SubDir:
+        Index: index.html
+        ErrorRuleType: 1
+    Domains:
+      - Domain: anycodes.cn
+        AutoCname: true
+        PrivateKey: './certificates/privateKey.pem'
+        Certificate: './certificates/certificate.pem'
+    Env:
+      Path: ./abc.js
+      Content:
+        - Key: aa
+          Vaule: bbb
+    Tags:
+      - Key: aa
+        Vaule: bbb
+    Cors:
+      AllowedOrigin:
+        - http://www.a.com
+        - http://www.b.com
+      AllowedMethod:
+        - POST
+        - GET
+      AllowedHeader: Authorization
+      ExposeHeader:
+        - x-oss-test
+        - x-oss-test1
+      MaxAgeSeconds: 100
+      ResponseVary: true
+    Referer:
+      AllowEmptyReferer: true
+      List:
+        - http://www.aliyun.com
+#    RoutingRules:
+#      RuleNumber: 1
+#      Condition:
+#        KeyPrefixEquals: abc/
+#        HttpErrorCodeReturnedEquals: 404
+#        IncludeHeader:
+#          Key: host
+#          Equals: test.oss-cn-beijing-internal.aliyuncs.com
+#        KeySuffixEquals: abc/
+#      Redirect:
+#        RedirectType: Mirror
+#        PassQueryString: true
+#        Mirror:
+#          URL: http://www.test.com/
+#          PassQueryString: true
+#          FollowRedirect: true
+#          CheckMd5: true
+#          Headers:
+#            PassAll: true
+#            Pass:
+#              - myheader-key1
+#              - myheader-key2
+#            Remove:
+#              - myheader-key3
+#              - myheader-key4
+#            Set:
+#              Key: aa
+#              Value: aa
+#        Protocol: http
+#        HostName: www.test.com
+#        ReplaceKeyPrefixWith:
+#        EnableReplacePrefix: def/
+#        #        ReplaceKeyWith: prefix/${key}.suffix
+#        HttpRedirectCode: 301

@@ -1,0 +1,28 @@
+{
+  "name": "@serverless-tool/website",
+  "version": "0.0.1",
+  "description": "\"通过本组件，您可以快速构建website\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\"git+https://github.com/Serverless-Devs/website-alibaba.git\""
+  },
+  "keywords": [
+    "serverless",
+    "website",
+    "oss",
+    "cdn"
+  ],
+  "author": "Xianbin Tang",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "js-yaml": "^3.14.0"
+  },
+  "devDependencies": {
+    "@serverless-devs/s-core": "0.0.20"
+  }
+}
