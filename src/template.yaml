@@ -5,7 +5,10 @@ WebsiteComponent:
   Properties:
     # OSS相关配置
     Region: 'cn-hangzhou'
-    Bucket: baiji-oss-test
+    Bucket: baiji-oss-test-2
+    StorageClass: Standard
+    Acl: public-read # public-read-write/private/public-read
+
     #    CodeUri: 本地路径
     CodeUri:
       ObjectPrefix: ossprefix/test

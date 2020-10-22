@@ -11,7 +11,6 @@ class WebsiteComponent extends Component {
     console.log(blue('website config deploying...'))
     // 导入FC组件
     const fc = await this.load('OSSComponent', 'Component');
-    console.log(JSON.stringify(fc))
     const { Project, Credentials, Properties } = inputs;
 
     const state = await fc.deploy({
