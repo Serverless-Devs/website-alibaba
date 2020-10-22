@@ -8,10 +8,10 @@ WebsiteComponent:
     Bucket: baiji-oss-test-2
     StorageClass: Standard
     Acl: public-read # public-read-write/private/public-read
-
+    DataRedundancyType: LRS
     #    CodeUri: 本地路径
     CodeUri:
-      ObjectPrefix: ossprefix/test
+#      ObjectPrefix: ossprefix/test
       LocalDir: ../test/
       # 仅支持目录前缀模式匹配，例如 src/test/, src/test1/等形式
       # 如果在Includes目录中，则一定会上传，否则判断是否被Exclude了，如果被Exclude，则不上传
