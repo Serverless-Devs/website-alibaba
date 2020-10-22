@@ -31,10 +31,12 @@ WebsiteComponent:
         PrivateKey: './certificates/privateKey.pem'
         Certificate: './certificates/certificate.pem'
     Env:
-      Path: ./abc.js
+      Path: abc.js
       Content:
-        - Key: aa
-          Vaule: bbb
+        - Key: key1
+          Value: v1
+        - Key: key2
+          Value: v2
     Tags:
       - Key: aa
         Value: bbb

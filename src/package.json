@@ -19,6 +19,7 @@
   "author": "Xianbin Tang",
   "license": "ISC",
   "dependencies": {
+    "ali-oss": "^6.11.2",
     "colors": "^1.4.0",
     "js-yaml": "^3.14.0"
   },

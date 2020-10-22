@@ -14,9 +14,6 @@ const remove = async (inputParams) => {
     others, force, accessControl, performance, video,
     backToOrigin, cache, https, domainName,
   } = inputParams
-
-  console.log('remove...')
-
 }
 
 

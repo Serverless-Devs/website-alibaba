@@ -28,6 +28,17 @@ class WebsiteComponent extends Component {
   // 移除操作
   async remove(inputs) {
     console.log(blue('website config removing...'))
+    const fc = await this.load('OSSComponent', 'Component');
+    const { Project, Credentials, Properties } = inputs;
+
+    const state = await fc.remove({
+      Args: inputs.Args,
+      State: fc.state,
+      Credentials,
+      Project,
+      Properties: Properties
+    });
+
     await removeImpl(this.handlerInputs(inputs))
     console.log(blue('website config succeed'))
   }
@@ -42,9 +53,12 @@ class WebsiteComponent extends Component {
     const region = properties.Region || {}
     const bucket = properties.Bucket|| {}
 
+    const env = properties.Env || {}
+    const codeUri = properties.CodeUri || {}
+
     return {
       credentials, state, args, properties,
-      region, bucket,
+      region, bucket, env, codeUri
     }
   }
 }
